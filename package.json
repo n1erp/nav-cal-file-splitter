@@ -1,0 +1,63 @@
+{
+  "name": "nav-cal-file-splitter",
+  "displayName": "CAL File Splitter",
+  "description": "splits a large Dynamics NAV CAL export file into separate .txt files, one per object.",
+  "version": "1.0.0",
+  "publisher": "TAHERElMehdi",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "icon": "assets/logo.ico",
+  "activationEvents": ["onCommand:calFileSplitter.splitCalFile"],
+  "main": "./out/extension.js",
+  "homepage": "https://github.com/taher-el-mehdi/nav-cal-file-splitter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taher-el-mehdi/nav-cal-file-splitter"
+  },
+  "bugs": {
+    "url": "https://github.com/taher-el-mehdi/nav-cal-file-splitter/issues"
+  },
+  "keywords": [
+    "Business Central",
+    "Dynamics 365",
+    "AL",
+    "AL Language",
+    "Microsoft Dynamics",
+    "AL Objects",
+    "Business Central Development"
+  ],
+  "contributes": {
+    "commands": [
+      { "command": "calFileSplitter.splitCalFile", "title": "Split CAL file" }
+    ],
+    "menus": {
+      "explorer/context": [
+        { "command": "calFileSplitter.splitCalFile", "group": "navigation" }
+      ],
+      "editor/title": [
+        { "command": "calFileSplitter.splitCalFile", "group": "navigation" }
+      ]
+    },
+    "configuration": {
+      "title": "CAL File Splitter",
+      "properties": {
+        "calFileSplitter.outputExtension": {
+          "type": "string",
+          "enum": [".txt", ".cal"],
+          "default": ".txt",
+          "description": "File extension to use for generated object files (choose '.txt' or '.cal')."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "vscode:prepublish": "tsc -p ."
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.85.0"
+  }
+}

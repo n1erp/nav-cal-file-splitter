@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel = "icon" type = "image/png" href = "./../assets/logo.ico">
+  <title>CAL File Splitter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: radial-gradient(circle at top, #1e1e1e, #0f0f0f);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h1 span {
+      color: #4fc3f7;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 30px;
+    }
+
+    .big-file {
+      font-size: 4rem;
+      margin: 30px 0;
+      animation: shake 1.5s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(1deg); }
+      50% { transform: rotate(-1deg); }
+      75% { transform: rotate(1deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .btn {
+      background: #4fc3f7;
+      color: #000;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(79,195,247,0.4);
+    }
+
+    .result {
+      display: none;
+      margin-top: 40px;
+    }
+
+    .files {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .file {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      animation: pop 0.4s ease-out;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CAL <span>File Splitter</span> ✂️</h1>
+    <p class="subtitle">
+      Because one giant CAL file is a crime against developers 😅
+    </p>
+
+    <div class="big-file">📄📄📄📄📄</div>
+
+    <button class="btn" onclick="splitCAL()">Split that CAL file!</button>
+
+    <div class="result" id="result">
+      <h2>✨ Boom! Files everywhere</h2>
+      <div class="files" id="files"></div>
+    </div>
+
+    <footer>
+      Built by Business Central developer for Navision developers ❤️
+    </footer>
+  </div>
+
+  <script>
+    function splitCAL() {
+      const result = document.getElementById('result');
+      const files = document.getElementById('files');
+
+      files.innerHTML = '';
+      result.style.display = 'block';
+
+      const objects = [
+        'Table_27_Item.cal',
+        'Page_30_ItemCard.cal',
+        'Codeunit_80_SalesPost.cal',
+        'Report_206_SalesInvoice.cal',
+        'Query_50000_Items.cal'
+      ];
+
+      objects.forEach((obj, index) => {
+        setTimeout(() => {
+          const div = document.createElement('div');
+          div.className = 'file';
+          div.textContent = obj;
+          files.appendChild(div);
+        }, index * 200);
+      });
+    }
+  </script>
+</body>
+</html>
