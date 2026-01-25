@@ -27,9 +27,20 @@
     "Business Central Development"
   ],
   "contributes": {
+    "commands": [
+      {
+        "command": "calFileSplitter.splitCalFile",
+        "title": "Split CAL File",
+        "category": "CAL File Splitter"
+      }
+    ],
     "menus": {
       "explorer/context": [
-        { "command": "calFileSplitter.splitCalFile", "group": "navigation" }
+        {
+          "command": "calFileSplitter.splitCalFile",
+          "group": "navigation",
+          "when": "resourceExtname == .txt"
+        }
       ]
     },
     "configuration": {
