@@ -2,7 +2,7 @@
   "name": "nav-cal-file-splitter",
   "displayName": "CAL File Splitter",
   "description": "splits a large Dynamics NAV CAL export file into separate .txt files, one per object.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "TAHERElMehdi",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],
